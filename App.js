@@ -46,7 +46,6 @@ export default class App extends React.Component {
         <Progress.Circle
           size={80}
           style={styles.progressBarTop}
-          showsText={true} 
            progress={this.state.progress}
             indeterminate={this.state.indeterminate}
             color = {'#009688'}

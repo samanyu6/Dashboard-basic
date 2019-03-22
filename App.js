@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { black, bold } from 'ansi-colors';
 import * as Progress from 'react-native-progress';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -41,7 +42,7 @@ export default class App extends React.Component {
   
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.headertext}>Dashboard</Text>
         <Progress.Circle
           size={80}
@@ -56,7 +57,7 @@ export default class App extends React.Component {
           size={80}
             style={styles.progressBar}
             progress={this.state.progress}
-            indeterminate={this.state.indeterminate}
+          indeterminate={this.state.indeterminate}
             color = {'#009688'}
         />
         <Text style={styles.ReferralText}>Referral Points</Text>
@@ -87,15 +88,7 @@ export default class App extends React.Component {
             color = {'#009688'}
         />
         <Text style={styles.FeedbackText}>Feedback Points</Text> 
-
-        <Progress.Circle
-          size={80}
-            style={styles.progressBar}
-            progress={this.state.progress}
-            indeterminate={this.state.indeterminate}
-            color = {'#009688'}
-          />
-      </View>
+        </ScrollView>
     );
   }
 }
@@ -104,59 +97,63 @@ const styles = StyleSheet.create({
   container: {
     flex: 0.25,
     backgroundColor: '#fff',
-    alignItems: 'baseline',
-    justifyContent: 'center',
-    marginLeft: 30
   },
   headertext: {
-    position: 'absolute',
+    position: 'relative',
     fontSize: 40,
-    fontWeight: '700'
+    fontWeight: '700',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 30,
+    marginTop: 50,
   },
   progressBarTop: {
-    flex: 1,
+   position: 'relative',
     alignContent: 'center',
-    paddingTop : 650
+    paddingTop: 50,
+    paddingLeft: 20
   },
   progressBar: {
     position: 'relative',
     alignContent: 'center',
-    paddingTop : 50
+    paddingTop: 50,
+    paddingLeft: 20
+
   },
   LocationText: {
     position: 'absolute',
     fontSize: 25,
     fontWeight: '700',
-    marginLeft: 120,
+    marginLeft: 140,
     paddingTop: 170
   },
   ReferralText: {
     position: 'absolute',
     fontSize: 25,
     fontWeight: '700',
-    marginLeft: 120,
-    paddingTop: 430
+    marginLeft: 140,
+    paddingTop: 300
   },
   DonationText: {
     position: 'absolute',
     fontSize: 25,
     fontWeight: '700',
-    marginLeft: 120,
-    paddingTop: 690
+    marginLeft: 140,
+    paddingTop: 430
   },
   ShareText: {
     position: 'absolute',
     fontSize: 25,
     fontWeight: '700',
-    marginLeft: 120,
-    paddingTop: 950
+    marginLeft: 140,
+    paddingTop: 560
   },
   FeedbackText: {
     position: 'absolute',
     fontSize: 25,
     fontWeight: '700',
-    marginLeft: 120,
-    paddingTop: 1210
+    marginLeft: 140,
+    paddingTop: 690
   },
 
 });
